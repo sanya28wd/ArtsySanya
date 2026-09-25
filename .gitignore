@@ -1,0 +1,10 @@
+node_modules
+.next
+.next*
+out
+*.log
+.DS_Store
+art/
+backup-original/
+*.MP4
+*.mp4
