@@ -1,7 +1,7 @@
 "use client";
 
 import { AnimatePresence, motion } from "motion/react";
-import { useMemo, useState, type CSSProperties } from "react";
+import { useEffect, useMemo, useState, type CSSProperties } from "react";
 import type { Artwork, Category } from "@/lib/artworks";
 import { ShaderGradientPanel } from "@/components/shader-gradient-panel";
 import { categories } from "@/lib/artworks";
@@ -12,6 +12,8 @@ import Image from "next/image";
 import { publicAsset } from "@/lib/site";
 
 type Selection = "All" | Category;
+
+const isCategory = (value: string): value is Category => categories.some((category) => category === value);
 
 const familyColours: Record<ColourFamily, string> = {
   Crimson: "#cc3041",
@@ -27,15 +29,21 @@ const familyColours: Record<ColourFamily, string> = {
 
 export const GalleryClient = ({
   artworks,
-  initialCategory,
 }: {
   readonly artworks: readonly Artwork[];
-  readonly initialCategory: Selection;
 }) => {
-  const [category, setCategory] = useState<Selection>(initialCategory);
+  const [category, setCategory] = useState<Selection>("All");
   const [colour, setColour] = useState<ColourFamily | null>(null);
   const [searchQuery, setSearchQuery] = useState<string>("");
   const [activeLightboxArtwork, setActiveLightboxArtwork] = useState<Artwork | null>(null);
+
+  useEffect(() => {
+    const requestedCategory = new URLSearchParams(window.location.search).get("category");
+
+    if (requestedCategory && isCategory(requestedCategory)) {
+      setCategory(requestedCategory);
+    }
+  }, []);
 
   const visible = useMemo(() => {
     const q = searchQuery.toLowerCase().trim();
