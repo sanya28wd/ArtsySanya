@@ -1,60 +1,62 @@
-# ArtsySanya — Art, code, and colour
+# ArtsySanya — my art, with code and colour
 
-An interactive portfolio for Dubai-based artist and AI engineering student Sanya Wadhawan. The site brings a real studio practice together with creative computing: browse original artwork, explore pieces by colour, and play with a live generative canvas.
+Hi, I’m Sanya. I’m an artist and an AI and Computer Science student based in Dubai. I made this website as a home for my artwork and as a way to bring my studio practice together with the things I’m learning in code, creative computing, and AI.
 
-![Turquoise butterfly artwork from the ArtsySanya Art × AI collection](public/artworks/artxai-bg.png)
+![A turquoise butterfly from my Art × AI collection](public/artworks/artxai-bg.png)
 
-## The project
+## Why I built it
 
-ArtsySanya is both an artist portfolio and a computer science project. It uses a typed artwork catalogue and a set of reusable React components to turn the artist’s collections into an interactive experience. The visual system pairs real artwork with shader-based colour fields, motion, and procedural canvas graphics.
+I wanted ArtsySanya to feel like exploring my work, rather than looking through a static list of images. I built the gallery around my own artwork, with ways to search and filter by collection or colour, inspect pieces, and save them to an inquiry bag. The About and Commissions pages share more of my process and make it easier to start a project with me.
 
-The AI connection is explored through creative technology and visual computation. The current site does not call a generative AI service or claim that the artworks were AI-generated; instead, it shows how code, algorithms, and GPU-driven graphics can become part of an artist’s digital studio.
+Studying AI and Computer Science has changed how I think about making things. I enjoy the structure of an algorithm and the unpredictability of colour in equal measure. I use code here as another creative material: it helps me make patterns move, build interactive experiences, and bring a little more atmosphere to the work.
 
-## Explore
+My artwork on this site is my own. The current website doesn’t use an AI image-generation service; the AI and CS connection is in the creative technology I’m exploring around my art.
 
-- **Home** — an editorial studio introduction, selected works, and an Art × AI feature.
-- **Gallery** — browse 35+ works, filter by medium or colour, search the catalogue, inspect details, and add pieces to an inquiry bag.
-- **About** — learn about the handmade and computational sides of the practice.
-- **Commissions** — explore custom work and send a project inquiry.
-- **Creative Code Playground** — move a pointer or finger across the canvas to create a living particle drawing. Change radial symmetry and colour palettes in real time.
-- **Shader-lit artwork frames** — React Three Fiber and Three.js render animated colour fields behind selected works. Scroll and pointer interactions add a subtle sense of depth.
+## What you can explore
 
-## Creative Code Playground
+- **Home** — a studio introduction, a selection of my work, and an Art × AI feature.
+- **Gallery** — browse 35+ pieces, search by title or medium, filter by collection or colour, inspect details, and save works to an inquiry bag.
+- **About** — learn about the handmade and computational sides of my practice.
+- **Commissions** — explore the kinds of custom work I take on and send me a project inquiry.
+- **Creative Code Playground** — move your pointer or finger across the canvas to create a living, symmetrical particle drawing. You can change the symmetry and colour palette while it runs.
+- **Shader-lit artwork frames** — I use React Three Fiber and Three.js to create animated colour fields behind selected artworks, with subtle depth as you scroll and move your pointer.
 
-The playground is a small, interactive graphics system built with the Canvas 2D API. Pointer movement seeds particles; each particle is reflected around a selectable number of radial segments to create symmetrical, evolving patterns. Particles fade over time, and a gentle ambient motion keeps the canvas alive when it is idle. The palette controls change the colours without leaving the page.
+## My Creative Code Playground
 
-This is a hands-on example of programming concepts used in visual computing:
+I built the playground with the Canvas 2D API. When you move across the canvas, your pointer seeds particles. I reflect each particle around a chosen number of radial segments to create evolving, symmetrical patterns. The particles fade over time, and a small amount of ambient motion keeps the canvas moving when it’s idle. You can change the symmetry and palette as you play.
+
+Building it gave me a way to explore programming through visuals. The playground brings together:
 
 - polar coordinates, angles, and rotational symmetry
-- particle state, velocity, and lifetimes
-- animation frames and time-based rendering
-- pointer and touch input
-- palette-driven rendering and interactive state
-- viewport-aware animation to avoid unnecessary work off screen
+- particle position, velocity, and lifetime
+- animation frames and time-based drawing
+- pointer and touch interaction
+- palette selection and interactive state
+- viewport-aware rendering, so the animation can rest when it’s off screen
 
-## Technology
+## How I built the site
 
-- **Next.js App Router**, **React**, and **TypeScript** for the site and typed content model
-- **React Three Fiber** and **Three.js** for real-time shader scenes
-- **ShaderGradient** for GPU-animated gradient surfaces
-- **Motion** for interaction and scroll-linked movement
-- **Canvas 2D** for the generative particle playground
-- **CSS** for responsive layouts, colour treatments, and reduced-motion support
+- **Next.js App Router**, **React**, and **TypeScript** power the pages and typed artwork catalogue.
+- **React Three Fiber** and **Three.js** render the shader scenes.
+- **ShaderGradient** creates the animated gradient surfaces.
+- **Motion** adds interface and scroll-linked movement.
+- **Canvas 2D** powers my generative playground.
+- **CSS** handles responsive layouts, colour, and reduced-motion support.
 
-There is no database or AI API required to run the site. Artwork metadata lives in `lib/artworks.ts`, and optimised local media lives in `public/artworks/`.
+I keep the artwork details in `lib/artworks.ts` and the image and video files in `public/artworks/`. There’s no database or AI API needed to run the site.
 
-## Run locally
+## Run it locally
 
-Use Node.js 20 or newer and npm.
+I use Node.js 20 or newer and npm.
 
 ```bash
 npm install
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000).
+Then open [http://localhost:3000](http://localhost:3000).
 
-## Project checks
+## Checks I use
 
 ```bash
 npm run lint
@@ -62,21 +64,21 @@ npm run validate:catalog
 npm run build
 ```
 
-## Project map
+## Where things live
 
 ```text
-app/                       Routes and global styles
+app/                       My routes and global styles
 components/                Gallery, inquiry, shader, and canvas experiences
-lib/artworks.ts            Typed artwork catalogue and media paths
+lib/artworks.ts            My typed artwork catalogue and media paths
 lib/colour.ts              Colour-family filtering helpers
-public/artworks/           Local artwork images and process videos
+public/artworks/           My artwork images and process videos
 public/vendor/liquid-glass/ Bundled liquid-glass UI styling and scripts
 ```
 
-## Skills demonstrated
+## What I’m learning through this project
 
-This project combines frontend engineering, typed data modelling, interactive graphics, visual design, and performance-aware animation. It demonstrates how a computer science and AI engineering background can support an art practice: algorithms generate patterns, shaders shape atmosphere, and interaction gives each collection a more expressive digital home.
+Building ArtsySanya lets me bring together frontend engineering, TypeScript, visual design, and interactive graphics. It’s also a way for me to explore how my AI and Computer Science studies can inform my art practice: algorithms help me build patterns, shaders shape colour and atmosphere, and interaction gives people a more personal way to explore my work.
 
 ---
 
-Made with colour and code in Dubai, UAE.
+Made with colour and code by me in Dubai, UAE.
