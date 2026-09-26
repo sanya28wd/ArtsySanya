@@ -3,10 +3,12 @@
 import { AnimatePresence, motion } from "motion/react";
 import { useMemo, useState, type CSSProperties } from "react";
 import type { Artwork, Category } from "@/lib/artworks";
+import { ShaderGradientPanel } from "@/components/shader-gradient-panel";
 import { categories } from "@/lib/artworks";
 import { colourFamilies, hasColourFamily, type ColourFamily } from "@/lib/colour";
 import { ArtworkCard } from "@/components/artwork-card";
 import { ArtworkLightbox } from "@/components/artwork-lightbox";
+import Image from "next/image";
 
 type Selection = "All" | Category;
 
@@ -71,6 +73,13 @@ export const GalleryClient = ({
       {colour && <div className="ambient-filter-glow" aria-hidden="true" />}
 
       <section className="page-hero">
+        <figure className="page-hero-visual">
+          <ShaderGradientPanel palette="gallery" />
+          <div className="hero-artwork-frame">
+            <Image src="/artworks/peacock-nocturne.jpg" alt="Blue hand-painted bottle with a peacock design" fill priority sizes="(max-width: 800px) 88vw, 42vw" />
+            <figcaption>01 / A STUDIO ORIGINAL</figcaption>
+          </div>
+        </figure>
         <p className="eyebrow">The full collection</p>
         <h1>
           Find the piece
@@ -211,4 +220,3 @@ export const GalleryClient = ({
     </main>
   );
 };
-

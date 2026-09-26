@@ -1,0 +1,1 @@
+window.LiquidGlassLibrary = { Container, Button };

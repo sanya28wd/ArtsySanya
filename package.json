@@ -10,10 +10,17 @@
     "validate:catalog": "tsx scripts/validate-catalog.ts"
   },
   "dependencies": {
+    "@react-three/fiber": "^9.8.1",
+    "@shadergradient/react": "^2.4.20",
+    "@types/three": "^0.186.0",
+    "camera-controls": "^3.1.0",
+    "html2canvas": "^1.4.1",
     "motion": "^12.23.12",
     "next": "^15.5.2",
     "react": "^19.1.1",
-    "react-dom": "^19.1.1"
+    "react-dom": "^19.1.1",
+    "three": "^0.186.1",
+    "three-stdlib": "^2.36.1"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4.1.13",

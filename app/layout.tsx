@@ -4,6 +4,7 @@ import { Header } from "@/components/header";
 import { InquiryBag } from "@/components/inquiry-bag";
 import { InquiryProvider } from "@/components/inquiry-provider";
 import { CustomCursor } from "@/components/custom-cursor";
+import { ScrollProgress } from "@/components/scroll-progress";
 import { ToastContainer } from "@/components/toast-notification";
 import { site } from "@/lib/site";
 
@@ -31,8 +32,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <link rel="stylesheet" href="/vendor/liquid-glass/glass.css" />
+      </head>
       <body className="antialiased">
         <InquiryProvider>
+          <ScrollProgress />
           <CustomCursor />
           <ToastContainer />
           <Header />

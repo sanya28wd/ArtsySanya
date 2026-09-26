@@ -47,11 +47,7 @@ export const HomeClient = ({
               <motion.div
                 className={`startup-tile startup-tile-${index + 1}`}
                 key={artwork.id}
-                animate={
-                  reduceMotion
-                    ? undefined
-                    : { y: index % 2 === 0 ? [0, -8, 0] : [0, 8, 0] }
-                }
+                animate={reduceMotion ? undefined : { y: index % 2 === 0 ? [0, -8, 0] : [0, 8, 0] }}
                 transition={{ duration: 5 + index, repeat: Infinity, ease: "easeInOut" }}
                 onClick={() => setActiveLightboxArtwork(artwork)}
                 style={{ cursor: "pointer" }}
@@ -62,7 +58,7 @@ export const HomeClient = ({
                   alt=""
                   fill
                   sizes="(max-width: 720px) 52vw, 42vw"
-                  priority={index < 4}
+                  priority
                 />
                 <span>{String(index + 1).padStart(2, "0")}</span>
               </motion.div>

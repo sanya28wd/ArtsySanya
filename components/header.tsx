@@ -5,6 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useInquiry } from "@/components/inquiry-provider";
 import { motion, AnimatePresence } from "motion/react";
+import { LiquidGlassLayer } from "@/components/liquid-glass-layer";
 
 export const Header = () => {
   const { items, toggle } = useInquiry();
@@ -26,6 +27,7 @@ export const Header = () => {
 
         {/* Desktop Navigation */}
         <nav aria-label="Primary navigation" className="desktop-nav">
+          {pathname === "/" && <LiquidGlassLayer />}
           {navLinks.map((link) => {
             const isActive = pathname === link.href || (link.href !== "/" && pathname.startsWith(link.href));
             return (
@@ -115,4 +117,3 @@ export const Header = () => {
     </>
   );
 };
-

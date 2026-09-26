@@ -1,6 +1,8 @@
 "use client";
 
 import { useState } from "react";
+import { ShaderGradientPanel } from "@/components/shader-gradient-panel";
+import Image from "next/image";
 import { site, whatsappLink } from "@/lib/site";
 
 const offerings = [
@@ -54,6 +56,13 @@ export const CommissionsClient = () => {
   return (
     <main className="page-shell commissions-page-shell">
       <section className="page-hero commission-hero">
+        <figure className="commission-hero-art" aria-label="Colourful rangoli artwork">
+          <ShaderGradientPanel palette="commissions" />
+          <div className="hero-artwork-frame">
+            <Image src="/artworks/festival-garden.jpg" alt="Colourful handmade rangoli arranged in a flower pattern" fill priority sizes="(max-width: 800px) 88vw, 38vw" />
+            <figcaption>MADE TO BRING A ROOM TO LIFE</figcaption>
+          </div>
+        </figure>
         <p className="eyebrow">Custom work is open</p>
         <h1>
           Bring me the beginning
@@ -91,11 +100,17 @@ export const CommissionsClient = () => {
               <article
                 key={offering.name}
                 className={`offering-card ${isSelected ? "is-selected" : ""}`}
-                onClick={() => setSelectedOffering(offering.name)}
               >
                 <div className="offering-top">
                   <span className="offering-num">0{index + 1}</span>
-                  {isSelected && <span className="offering-active-badge">Selected ✓</span>}
+                  <button
+                    className="offering-select"
+                    type="button"
+                    aria-pressed={isSelected}
+                    onClick={() => setSelectedOffering(offering.name)}
+                  >
+                    {isSelected ? "Selected ✓" : "Choose this"}
+                  </button>
                 </div>
                 <h2>{offering.name}</h2>
                 <p>{offering.desc}</p>

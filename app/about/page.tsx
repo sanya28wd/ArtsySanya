@@ -1,5 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
+import { CreativeLineStudy } from "@/components/creative-line-study";
+import { ShaderGradientPanel } from "@/components/shader-gradient-panel";
 
 export const metadata = { title: "About — Sanya Wadhawan" };
 
@@ -34,13 +36,17 @@ export default function AboutPage() {
           </p>
         </div>
         <figure className="about-hero-art">
-          <Image
-            src="/artworks/turquoise-metamorphosis.jpg"
-            alt="Turquoise butterfly wing digital artwork"
-            fill
-            priority
-            sizes="(max-width: 800px) 100vw, 42vw"
-          />
+          <ShaderGradientPanel palette="about" />
+          <div className="hero-artwork-frame">
+            <Image
+              src="/artworks/turquoise-metamorphosis.jpg"
+              alt="Turquoise butterfly wing digital artwork"
+              fill
+              priority
+              sizes="(max-width: 800px) 100vw, 42vw"
+            />
+            <figcaption>Colour, pattern, and a little bit of wonder.</figcaption>
+          </div>
         </figure>
       </section>
 
@@ -78,6 +84,7 @@ export default function AboutPage() {
           <p className="eyebrow">The Convergence</p>
           <h2>Two disciplines. <i>One creative vision.</i></h2>
         </div>
+        <CreativeLineStudy />
         <div className="matrix-grid">
           {dualDisciplines.map((d) => (
             <article key={d.title} className="matrix-card">

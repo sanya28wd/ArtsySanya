@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useRef, type MouseEvent } from "react";
+import { useReducedMotion } from "motion/react";
 import Image from "next/image";
 import Link from "next/link";
 import { useInquiry } from "@/components/inquiry-provider";
@@ -19,38 +20,32 @@ export const ArtworkCard = ({
   const { add } = useInquiry();
   const [isAdded, setIsAdded] = useState(false);
   const cardRef = useRef<HTMLElement>(null);
-  const [rotateX, setRotateX] = useState(0);
-  const [rotateY, setRotateY] = useState(0);
-  const [glarePos, setGlarePos] = useState({ x: 50, y: 50, opacity: 0 });
+  const reduceMotion = useReducedMotion();
 
   const cover = artwork.cover;
   if (cover.kind !== "image") return null;
 
-  const handleMouseMove = (e: MouseEvent<HTMLDivElement>) => {
-    if (!cardRef.current) return;
-    const rect = cardRef.current.getBoundingClientRect();
+  const handleMouseMove = (e: MouseEvent<HTMLElement>): void => {
+    const element = cardRef.current;
+    if (!element || reduceMotion) return;
+
+    const rect = element.getBoundingClientRect();
     const x = e.clientX - rect.left;
     const y = e.clientY - rect.top;
+    const rotateX = ((y - rect.height / 2) / (rect.height / 2)) * -6;
+    const rotateY = ((x - rect.width / 2) / (rect.width / 2)) * 6;
 
-    const centerX = rect.width / 2;
-    const centerY = rect.height / 2;
-
-    const rX = ((y - centerY) / centerY) * -7;
-    const rY = ((x - centerX) / centerX) * 7;
-
-    setRotateX(rX);
-    setRotateY(rY);
-    setGlarePos({
-      x: (x / rect.width) * 100,
-      y: (y / rect.height) * 100,
-      opacity: 0.22,
-    });
+    element.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-5px)`;
+    element.style.setProperty("--glare-x", `${(x / rect.width) * 100}%`);
+    element.style.setProperty("--glare-y", `${(y / rect.height) * 100}%`);
+    element.style.setProperty("--glare-opacity", "0.2");
   };
 
-  const handleMouseLeave = () => {
-    setRotateX(0);
-    setRotateY(0);
-    setGlarePos((prev) => ({ ...prev, opacity: 0 }));
+  const handleMouseLeave = (): void => {
+    const element = cardRef.current;
+    if (!element) return;
+    element.style.transform = "perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0)";
+    element.style.setProperty("--glare-opacity", "0");
   };
 
   const addToBag = (e: MouseEvent): void => {
@@ -83,12 +78,7 @@ export const ArtworkCard = ({
       ref={cardRef}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
-      style={
-        {
-          transform: `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateZ(0)`,
-          "--accent-color": artwork.colors[0] || "#d2e26b",
-        } as React.CSSProperties
-      }
+      style={{ "--accent-color": artwork.colors[0] || "#d2e26b" } as React.CSSProperties}
     >
       <div className="artwork-image-container">
         <Link
@@ -105,13 +95,7 @@ export const ArtworkCard = ({
           />
 
           {/* Interactive Specular Glare */}
-          <div
-            className="artwork-glare"
-            style={{
-              background: `radial-gradient(circle at ${glarePos.x}% ${glarePos.y}%, rgba(255,255,255,${glarePos.opacity}), transparent 60%)`,
-            }}
-            aria-hidden="true"
-          />
+          <div className="artwork-glare" aria-hidden="true" />
 
           <span className="view-work">View piece ↗</span>
         </Link>
