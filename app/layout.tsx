@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import type { CSSProperties } from "react";
 import "./globals.css";
 import { Header } from "@/components/header";
 import { InquiryBag } from "@/components/inquiry-bag";
@@ -6,7 +7,14 @@ import { InquiryProvider } from "@/components/inquiry-provider";
 import { CustomCursor } from "@/components/custom-cursor";
 import { ScrollProgress } from "@/components/scroll-progress";
 import { ToastContainer } from "@/components/toast-notification";
-import { site } from "@/lib/site";
+import { publicAsset, site } from "@/lib/site";
+
+const rootArtworkStyles = {
+  "--asset-artxai": `url("${publicAsset("/artworks/artxai-bg.png")}")`,
+  "--asset-festival-garden": `url("${publicAsset("/artworks/festival-garden.jpg")}")`,
+  "--asset-peacock-nocturne": `url("${publicAsset("/artworks/peacock-nocturne.jpg")}")`,
+  "--asset-turquoise-metamorphosis": `url("${publicAsset("/artworks/turquoise-metamorphosis.jpg")}")`,
+} as CSSProperties;
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
@@ -31,9 +39,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" style={rootArtworkStyles}>
       <head>
-        <link rel="stylesheet" href="/vendor/liquid-glass/glass.css" />
+        <link rel="stylesheet" href={publicAsset("/vendor/liquid-glass/glass.css")} />
       </head>
       <body className="antialiased">
         <InquiryProvider>

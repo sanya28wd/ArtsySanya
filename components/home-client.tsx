@@ -10,6 +10,7 @@ import { SelectedWorks } from "@/components/selected-works";
 import { ColourAtmosphere } from "@/components/colour-atmosphere";
 import { GenerativeCanvas } from "@/components/generative-canvas";
 import { ArtworkLightbox } from "@/components/artwork-lightbox";
+import { publicAsset } from "@/lib/site";
 
 const services: readonly { readonly label: string; readonly category: Category }[] = [
   { label: "Custom paintings", category: "Canvas Paintings" },
@@ -180,7 +181,7 @@ export const HomeClient = ({
         <ColourAtmosphere />
         <figure className="colour-side-art">
           <Image
-            src="/artworks/artxai-bg.png"
+            src={publicAsset("/artworks/artxai-bg.png")}
             alt="Turquoise butterfly artwork with a text-safe blue backdrop"
             fill
             sizes="100vw"

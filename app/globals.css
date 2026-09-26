@@ -850,13 +850,13 @@ nav { display:flex; gap:26px; font-size:13px; text-transform:uppercase; letter-s
   .about-page-shell .about-hero {
     background-image:
       linear-gradient(90deg, #0b0d19 0%, #0b0d19 39%, rgba(11, 13, 25, 0.9) 48%, rgba(11, 13, 25, 0.18) 70%, transparent 100%),
-      url("/artworks/turquoise-metamorphosis.jpg");
+      var(--asset-turquoise-metamorphosis);
   }
 
   .commissions-page-shell .commission-hero {
     background-image:
       linear-gradient(90deg, #100d19 0%, #100d19 39%, rgba(16, 13, 25, 0.9) 48%, rgba(16, 13, 25, 0.18) 70%, transparent 100%),
-      url("/artworks/festival-garden.jpg");
+      var(--asset-festival-garden);
   }
 
   .about-page-shell .about-hero::after,
@@ -873,7 +873,7 @@ nav { display:flex; gap:26px; font-size:13px; text-transform:uppercase; letter-s
     padding-left: 3.5vw;
     background:
       linear-gradient(90deg, #090a10 0%, #090a10 38%, rgba(9, 10, 16, 0.88) 48%, rgba(9, 10, 16, 0.16) 70%, transparent 100%),
-      url("/artworks/peacock-nocturne.jpg") right 4vw center / min(39vw, 650px) auto no-repeat;
+      var(--asset-peacock-nocturne) right 4vw center / min(39vw, 650px) auto no-repeat;
   }
 
   .gallery-page-shell::before {
@@ -2468,7 +2468,7 @@ nav { display:flex; gap:26px; font-size:13px; text-transform:uppercase; letter-s
   background:
     linear-gradient(90deg, #090a10 0%, rgba(9, 10, 16, 0.88) 35%, rgba(9, 10, 16, 0.36) 68%, #090a10 100%),
     linear-gradient(180deg, rgba(7, 12, 29, 0.1), #090a10 58%),
-    url("/artworks/peacock-nocturne.jpg") right 8% top 1.5rem / min(58vw, 940px) auto no-repeat;
+    var(--asset-peacock-nocturne) right 8% top 1.5rem / min(58vw, 940px) auto no-repeat;
 }
 
 .about-page-shell::before {
@@ -2524,7 +2524,7 @@ nav { display:flex; gap:26px; font-size:13px; text-transform:uppercase; letter-s
   border-radius: 50%;
   background:
     linear-gradient(135deg, rgba(19, 236, 224, 0.18), rgba(139, 88, 225, 0.14)),
-    url("/artworks/turquoise-metamorphosis.jpg") center / cover;
+    var(--asset-turquoise-metamorphosis) center / cover;
   border: 1px solid rgba(178, 239, 239, 0.38);
   box-shadow: 0 0 85px rgba(45, 206, 208, 0.22);
   transform: translateY(-50%) rotate(-8deg);
@@ -2538,7 +2538,7 @@ nav { display:flex; gap:26px; font-size:13px; text-transform:uppercase; letter-s
   border-radius: 38% 62% 57% 43% / 43% 42% 58% 57%;
   background:
     linear-gradient(135deg, rgba(241, 88, 146, 0.22), rgba(254, 193, 68, 0.13)),
-    url("/artworks/festival-garden.jpg") center / cover;
+    var(--asset-festival-garden) center / cover;
   border: 1px solid rgba(255, 223, 184, 0.36);
   box-shadow: 0 0 92px rgba(238, 111, 166, 0.19);
   transform: translateY(-50%) rotate(8deg);
@@ -2755,13 +2755,13 @@ nav { display:flex; gap:26px; font-size:13px; text-transform:uppercase; letter-s
   .about-page-shell .about-hero::after {
     background:
       linear-gradient(90deg, #0b0d19 0%, rgba(11, 13, 25, 0.88) 13%, rgba(11, 13, 25, 0.2) 53%, transparent 74%),
-      url("/artworks/turquoise-metamorphosis.jpg") center / cover;
+      var(--asset-turquoise-metamorphosis) center / cover;
   }
 
   .commissions-page-shell .commission-hero::after {
     background:
       linear-gradient(90deg, #100d19 0%, rgba(16, 13, 25, 0.88) 13%, rgba(16, 13, 25, 0.2) 53%, transparent 74%),
-      url("/artworks/festival-garden.jpg") center / cover;
+      var(--asset-festival-garden) center / cover;
   }
 }
 
@@ -2781,13 +2781,13 @@ nav { display:flex; gap:26px; font-size:13px; text-transform:uppercase; letter-s
   .about-page-shell .about-hero::after {
     background:
       linear-gradient(0deg, rgba(11, 13, 25, 0.08), #0b0d19 96%),
-      url("/artworks/turquoise-metamorphosis.jpg") center / cover;
+      var(--asset-turquoise-metamorphosis) center / cover;
   }
 
   .commissions-page-shell .commission-hero::after {
     background:
       linear-gradient(0deg, rgba(16, 13, 25, 0.08), #100d19 96%),
-      url("/artworks/festival-garden.jpg") center / cover;
+      var(--asset-festival-garden) center / cover;
   }
 }
 
@@ -2888,7 +2888,7 @@ nav { display:flex; gap:26px; font-size:13px; text-transform:uppercase; letter-s
   .about-page-shell .about-hero::after {
     background:
       linear-gradient(90deg, #0b0d19 0%, rgba(11, 13, 25, 0.72) 22%, rgba(11, 13, 25, 0.08) 62%, transparent 100%),
-      url("/artworks/artxai-bg.png") right center / min(48vw, 760px) auto no-repeat;
+      var(--asset-artxai) right center / min(48vw, 760px) auto no-repeat;
   }
 
   .about-actions {
@@ -2985,7 +2985,7 @@ nav { display:flex; gap:26px; font-size:13px; text-transform:uppercase; letter-s
   .about-page-shell .about-hero {
     background-image:
       linear-gradient(90deg, #0b0d19 0%, #0b0d19 42%, rgba(11, 13, 25, 0.88) 51%, rgba(11, 13, 25, 0.16) 72%, transparent 100%),
-      url("/artworks/artxai-bg.png") !important;
+      var(--asset-artxai) !important;
     background-position: center, right center !important;
     background-repeat: no-repeat !important;
     background-size: auto, min(48vw, 760px) auto !important;

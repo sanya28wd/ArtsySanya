@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import { publicAsset } from "@/lib/site";
 
 type LiquidGlassOptions = {
   readonly borderRadius: number;
@@ -50,9 +51,9 @@ const loadLiquidGlass = (): Promise<LiquidGlassLibrary> => {
     const glassWindow = window as GlassWindow;
     const html2canvas = (await import("html2canvas")).default;
     glassWindow.html2canvas = html2canvas;
-    await loadScript("/vendor/liquid-glass/container.js");
-    await loadScript("/vendor/liquid-glass/button.js");
-    await loadScript("/vendor/liquid-glass/bridge.js");
+    await loadScript(publicAsset("/vendor/liquid-glass/container.js"));
+    await loadScript(publicAsset("/vendor/liquid-glass/button.js"));
+    await loadScript(publicAsset("/vendor/liquid-glass/bridge.js"));
 
     const library = glassWindow.LiquidGlassLibrary;
     if (!library) throw new Error("Liquid glass library loaded without its browser bridge.");

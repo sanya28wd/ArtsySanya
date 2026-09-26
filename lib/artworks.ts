@@ -1,3 +1,5 @@
+import { publicAsset } from "@/lib/site";
+
 export const categories = [
   "Painted Bottles",
   "Digital Art",
@@ -30,8 +32,8 @@ export type Artwork = {
   readonly featured: boolean;
 };
 
-const image = (name: string, alt: string): Media => ({ kind: "image", src: `/artworks/${name}.jpg`, alt });
-const video = (name: string, poster: string, alt: string): Media => ({ kind: "video", src: `/artworks/${name}.webm`, poster: `/artworks/${poster}.jpg`, alt });
+const image = (name: string, alt: string): Media => ({ kind: "image", src: publicAsset(`/artworks/${name}.jpg`), alt });
+const video = (name: string, poster: string, alt: string): Media => ({ kind: "video", src: publicAsset(`/artworks/${name}.webm`), poster: publicAsset(`/artworks/${poster}.jpg`), alt });
 
 export const artworks: readonly Artwork[] = [
   { id: "bottle-ganesha", slug: "ganesha-glow", title: "Ganesha Glow", category: "Painted Bottles", description: "A celebratory hand-painted bottle with a vivid sacred motif and jewel-toned detail.", tags: ["bottle art", "ganesha", "upcycled"], medium: "Hand-painted glass bottle", year: null, dimensions: null, price: null, availability: "available", formats: ["original", "print", "commission"], cover: image("ganesha-glow", "Hand-painted bottle with a colourful Ganesha motif"), media: [image("ganesha-glow", "Hand-painted bottle with a colourful Ganesha motif"), video("bottle-process", "ganesha-glow", "Process video of hand-painted bottle art")], colors: ["#076c52", "#ef4d27", "#e7ab25"], featured: true },

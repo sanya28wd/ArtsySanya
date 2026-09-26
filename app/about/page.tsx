@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { CreativeLineStudy } from "@/components/creative-line-study";
 import { ShaderGradientPanel } from "@/components/shader-gradient-panel";
+import { publicAsset } from "@/lib/site";
 
 export const metadata = { title: "About — Sanya Wadhawan" };
 
@@ -39,7 +40,7 @@ export default function AboutPage() {
           <ShaderGradientPanel palette="about" />
           <div className="hero-artwork-frame">
             <Image
-              src="/artworks/turquoise-metamorphosis.jpg"
+              src={publicAsset("/artworks/turquoise-metamorphosis.jpg")}
               alt="Turquoise butterfly wing digital artwork"
               fill
               priority

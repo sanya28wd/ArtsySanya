@@ -2,14 +2,15 @@
 
 import Image from "next/image";
 import { type AnimationEvent, useEffect, useState } from "react";
+import { publicAsset } from "@/lib/site";
 
 const loadingArtworks = [
-  { src: "/artworks/ganesha-glow.jpg", alt: "" },
-  { src: "/artworks/turquoise-metamorphosis.jpg", alt: "" },
-  { src: "/artworks/sunset-promise.jpg", alt: "" },
-  { src: "/artworks/radha-krishna-reverie.jpg", alt: "" },
-  { src: "/artworks/festival-garden.jpg", alt: "" },
-  { src: "/artworks/peacock-nocturne.jpg", alt: "" },
+  { src: publicAsset("/artworks/ganesha-glow.jpg"), alt: "" },
+  { src: publicAsset("/artworks/turquoise-metamorphosis.jpg"), alt: "" },
+  { src: publicAsset("/artworks/sunset-promise.jpg"), alt: "" },
+  { src: publicAsset("/artworks/radha-krishna-reverie.jpg"), alt: "" },
+  { src: publicAsset("/artworks/festival-garden.jpg"), alt: "" },
+  { src: publicAsset("/artworks/peacock-nocturne.jpg"), alt: "" },
 ] as const;
 
 export const LoadingScreen = () => {

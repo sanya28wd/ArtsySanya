@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { ShaderGradientPanel } from "@/components/shader-gradient-panel";
 import Image from "next/image";
-import { site, whatsappLink } from "@/lib/site";
+import { publicAsset, site, whatsappLink } from "@/lib/site";
 
 const offerings = [
   {
@@ -59,7 +59,7 @@ export const CommissionsClient = () => {
         <figure className="commission-hero-art" aria-label="Colourful rangoli artwork">
           <ShaderGradientPanel palette="commissions" />
           <div className="hero-artwork-frame">
-            <Image src="/artworks/festival-garden.jpg" alt="Colourful handmade rangoli arranged in a flower pattern" fill priority sizes="(max-width: 800px) 88vw, 38vw" />
+            <Image src={publicAsset("/artworks/festival-garden.jpg")} alt="Colourful handmade rangoli arranged in a flower pattern" fill priority sizes="(max-width: 800px) 88vw, 38vw" />
             <figcaption>MADE TO BRING A ROOM TO LIFE</figcaption>
           </div>
         </figure>

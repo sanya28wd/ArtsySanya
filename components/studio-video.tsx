@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { publicAsset } from "@/lib/site";
 
 export const StudioVideo = () => {
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -64,13 +65,13 @@ export const StudioVideo = () => {
         muted={isMuted}
         playsInline
         preload="auto"
-        poster="/artworks/peacock-process-poster.jpg"
+        poster={publicAsset("/artworks/peacock-process-poster.jpg")}
         aria-label="A peacock artwork taking shape in the studio"
         onClick={togglePlay}
         className="studio-video-player"
       >
-        <source src="/artworks/peacock-process.mp4" type="video/mp4" />
-        <source src="/artworks/peacock-process.webm" type="video/webm" />
+        <source src={publicAsset("/artworks/peacock-process.mp4")} type="video/mp4" />
+        <source src={publicAsset("/artworks/peacock-process.webm")} type="video/webm" />
       </video>
 
       {/* Interactive Controls Bar */}
@@ -106,4 +107,3 @@ export const StudioVideo = () => {
     </div>
   );
 };
-

@@ -1,7 +1,11 @@
+const publicBasePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
+
+export const publicAsset = (path: string): string => `${publicBasePath}${path}`;
+
 export const site = {
   name: "ArtsySanya",
   artist: "Sanya Wadhawan",
-  url: "https://artsysanya.vercel.app",
+  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://artsysanya.vercel.app",
   whatsapp: "971521078973",
   email: "sanya28wd@gmail.com",
   instagram: "https://www.instagram.com/artsysanyaa?igsi=NTU3Zmd6cnRxMzRs&utm_source=qr",

@@ -9,6 +9,7 @@ import { colourFamilies, hasColourFamily, type ColourFamily } from "@/lib/colour
 import { ArtworkCard } from "@/components/artwork-card";
 import { ArtworkLightbox } from "@/components/artwork-lightbox";
 import Image from "next/image";
+import { publicAsset } from "@/lib/site";
 
 type Selection = "All" | Category;
 
@@ -76,7 +77,7 @@ export const GalleryClient = ({
         <figure className="page-hero-visual">
           <ShaderGradientPanel palette="gallery" />
           <div className="hero-artwork-frame">
-            <Image src="/artworks/peacock-nocturne.jpg" alt="Blue hand-painted bottle with a peacock design" fill priority sizes="(max-width: 800px) 88vw, 42vw" />
+            <Image src={publicAsset("/artworks/peacock-nocturne.jpg")} alt="Blue hand-painted bottle with a peacock design" fill priority sizes="(max-width: 800px) 88vw, 42vw" />
             <figcaption>01 / A STUDIO ORIGINAL</figcaption>
           </div>
         </figure>

@@ -2,7 +2,13 @@
 
 Hi, I’m Sanya. I’m an artist and an AI and Computer Science student based in Dubai. I made this website as a home for my artwork and as a way to bring my studio practice together with the things I’m learning in code, creative computing, and AI.
 
-![A turquoise butterfly from my Art × AI collection](public/artworks/artxai-bg.png)
+<p align="center">
+  <img src="public/brand/artsysanya-logo.png" alt="ArtsySanya logo" width="280" />
+</p>
+
+## Visit the site
+
+[Open ArtsySanya](https://sanya28wd.github.io/ArtsySanya/)
 
 ## Why I built it
 
